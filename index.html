@@ -16,6 +16,105 @@
       --blue-light: #e0ebff;
     }
 
+    /* ── DARK MODE ── */
+    [data-theme="dark"] {
+      --white: #0f0f0f;
+      --off: #161616;
+      --black: #f0f0f0;
+      --gray: #9ca3af;
+      --light: #2a2a2a;
+      --blue: #3b82f6;
+      --blue-light: #1e2a3a;
+    }
+
+    [data-theme="dark"] nav {
+      background: rgba(15,15,15,0.88);
+    }
+
+    [data-theme="dark"] #accueil {
+      background: var(--white);
+    }
+
+    [data-theme="dark"] #accueil::before {
+      background-image: radial-gradient(circle, #2a3a5a 1px, transparent 1px);
+      opacity: 0.5;
+    }
+
+    [data-theme="dark"] .skill-card {
+      background: #1a1a1a;
+    }
+
+    [data-theme="dark"] .project-card {
+      background: #1a1a1a;
+    }
+
+    [data-theme="dark"] .project-thumb.t1 { background: linear-gradient(135deg, #1e2a3a 0%, #162040 100%); }
+    [data-theme="dark"] .project-thumb.t2 { background: linear-gradient(135deg, #1a2e1a 0%, #102510 100%); }
+    [data-theme="dark"] .project-thumb.t3 { background: linear-gradient(135deg, #2e1a1a 0%, #251010 100%); }
+
+    [data-theme="dark"] .tech-badge {
+      background: #222;
+      border-color: #333;
+    }
+
+    [data-theme="dark"] footer {
+      background: #080808;
+      color: #444;
+    }
+
+    [data-theme="dark"] .hero-title .outline {
+      -webkit-text-stroke: 2px var(--black);
+    }
+
+    /* ── THEME TOGGLE BUTTON ── */
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--light);
+      border-radius: 100px;
+      cursor: pointer;
+      width: 44px;
+      height: 26px;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--blue);
+    }
+
+    .theme-toggle-thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--black);
+      transition: transform 0.3s, background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    [data-theme="dark"] .theme-toggle-thumb {
+      transform: translateX(18px);
+      background: var(--blue);
+    }
+
+    .theme-toggle-icon-sun,
+    .theme-toggle-icon-moon {
+      position: absolute;
+      transition: opacity 0.3s;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .theme-toggle-icon-sun { opacity: 1; }
+    .theme-toggle-icon-moon { opacity: 0; }
+
+    [data-theme="dark"] .theme-toggle-icon-sun { opacity: 0; }
+    [data-theme="dark"] .theme-toggle-icon-moon { opacity: 1; }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
@@ -24,6 +123,7 @@
       background: var(--white);
       color: var(--black);
       overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     /* ── GRAIN TEXTURE OVERLAY ── */
@@ -625,6 +725,12 @@
       <li><a href="#projets">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+      <div class="theme-toggle-thumb">
+        <span class="theme-toggle-icon-sun">☀️</span>
+        <span class="theme-toggle-icon-moon">🌙</span>
+      </div>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -760,7 +866,7 @@
         Disponible pour échanger sur des opportunités de stage, d'alternance ou simplement pour discuter d'informatique et de réseaux.
       </p>
       <div class="contact-links">
-        <a href="mailto:votre@email.com" class="contact-btn primary">✉️ Envoyer un email</a>
+        <a href="/cdn-cgi/l/email-protection#77011803051237121a161e1b5914181a" class="contact-btn primary">✉️ Envoyer un email</a>
         <a href="https://linkedin.com" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
         <a href="cv.pdf" download class="contact-btn secondary">📄 Mon CV</a>
       </div>
@@ -784,6 +890,20 @@
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       nav.style.padding = window.scrollY > 60 ? '1rem 5rem' : '1.5rem 5rem';
+    });
+
+    // ── DARK MODE ──
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
     });
   </script>
 </body>
