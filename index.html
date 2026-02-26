@@ -704,13 +704,78 @@
       transform: translateY(0);
     }
 
+    /* ── BURGER MENU ── */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 200;
+    }
+
+    .burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.2rem;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--blue); }
+
+    .mobile-toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-links { display: none; }
+      .theme-toggle { display: none; }
+      .burger { display: flex; }
       section { padding: 5rem 1.5rem; }
       #accueil { padding: 8rem 1.5rem 4rem; }
       .hero-number, .contact-deco, .scroll-hint { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -731,7 +796,27 @@
         <span class="theme-toggle-icon-moon">🌙</span>
       </div>
     </button>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#accueil" class="mobile-link">Accueil</a>
+    <a href="#competences" class="mobile-link">Compétences</a>
+    <a href="#projets" class="mobile-link">Projets</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <div class="mobile-toggle-row">
+      <span>Thème</span>
+      <button class="theme-toggle" id="themeToggleMobile" aria-label="Changer de thème">
+        <div class="theme-toggle-thumb">
+          <span class="theme-toggle-icon-sun">☀️</span>
+          <span class="theme-toggle-icon-moon">🌙</span>
+        </div>
+      </button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section id="accueil">
@@ -866,8 +951,8 @@
         Disponible pour échanger sur des opportunités de stage, d'alternance ou simplement pour discuter d'informatique et de réseaux.
       </p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#77011803051237121a161e1b5914181a" class="contact-btn primary">✉️ Envoyer un email</a>
-        <a href="https://linkedin.com" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
+        <a href="mailto:vincent.mgn@outlook.fr" class="contact-btn primary">✉️ Envoyer un email</a>
+        <a href="https://www.linkedin.com/in/vincent-magnin-76a025311" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
         <a href="cv.pdf" download class="contact-btn secondary">📄 Mon CV</a>
       </div>
     </div>
@@ -894,16 +979,39 @@
 
     // ── DARK MODE ──
     const toggle = document.getElementById('themeToggle');
+    const toggleMobile = document.getElementById('themeToggleMobile');
     const html = document.documentElement;
 
     if (localStorage.getItem('theme') === 'dark') {
       html.setAttribute('data-theme', 'dark');
     }
 
-    toggle.addEventListener('click', () => {
+    function switchTheme() {
       const isDark = html.getAttribute('data-theme') === 'dark';
       html.setAttribute('data-theme', isDark ? 'light' : 'dark');
       localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    }
+
+    toggle.addEventListener('click', switchTheme);
+    toggleMobile.addEventListener('click', switchTheme);
+
+    // ── BURGER MENU ──
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
     });
   </script>
 </body>
