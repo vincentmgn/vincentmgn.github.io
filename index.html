@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vincent Magnin — Portfolio SISR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --white: #ffffff;
@@ -27,62 +27,37 @@
       --blue-light: #1e2a3a;
     }
 
-    [data-theme="dark"] nav {
-      background: rgba(15,15,15,0.88);
-    }
-
-    [data-theme="dark"] #accueil {
-      background: var(--white);
-    }
-
+    [data-theme="dark"] nav { background: rgba(15,15,15,0.88); }
+    [data-theme="dark"] #accueil { background: var(--white); }
     [data-theme="dark"] #accueil::before {
       background-image: radial-gradient(circle, #2a3a5a 1px, transparent 1px);
       opacity: 0.5;
     }
-
-    [data-theme="dark"] .skill-card {
-      background: #1a1a1a;
-    }
-
-    [data-theme="dark"] .project-card {
-      background: #1a1a1a;
-    }
-
+    [data-theme="dark"] .skill-card { background: #1a1a1a; }
+    [data-theme="dark"] .project-card { background: #1a1a1a; }
     [data-theme="dark"] .project-thumb.t1 { background: linear-gradient(135deg, #1e2a3a 0%, #162040 100%); }
     [data-theme="dark"] .project-thumb.t2 { background: linear-gradient(135deg, #1a2e1a 0%, #102510 100%); }
     [data-theme="dark"] .project-thumb.t3 { background: linear-gradient(135deg, #2e1a1a 0%, #251010 100%); }
+    [data-theme="dark"] .tech-badge { background: #222; border-color: #333; }
+    [data-theme="dark"] footer { background: #080808; color: #444; }
+    [data-theme="dark"] .hero-title .outline { -webkit-text-stroke: 2px var(--black); }
+    [data-theme="dark"] .timeline-item::before { box-shadow: 0 0 0 4px rgba(59,130,246,0.2); }
+    [data-theme="dark"] .progress-bar-bg { background: #2a2a2a; }
+    [data-theme="dark"] #parcours { background: var(--white); }
+    [data-theme="dark"] #progression { background: var(--off); }
 
-    [data-theme="dark"] .tech-badge {
-      background: #222;
-      border-color: #333;
-    }
-
-    [data-theme="dark"] footer {
-      background: #080808;
-      color: #444;
-    }
-
-    [data-theme="dark"] .hero-title .outline {
-      -webkit-text-stroke: 2px var(--black);
-    }
-
-    /* ── THEME TOGGLE BUTTON ── */
+    /* ── THEME TOGGLE ── */
     .theme-toggle {
       background: none;
       border: 1.5px solid var(--light);
       border-radius: 100px;
       cursor: pointer;
-      width: 44px;
-      height: 26px;
+      width: 44px; height: 26px;
       position: relative;
-      transition: border-color 0.3s, background 0.3s;
+      transition: border-color 0.3s;
       flex-shrink: 0;
     }
-
-    .theme-toggle:hover {
-      border-color: var(--blue);
-    }
-
+    .theme-toggle:hover { border-color: var(--blue); }
     .theme-toggle-thumb {
       position: absolute;
       top: 3px; left: 3px;
@@ -95,23 +70,15 @@
       justify-content: center;
       font-size: 10px;
     }
-
-    [data-theme="dark"] .theme-toggle-thumb {
-      transform: translateX(18px);
-      background: var(--blue);
-    }
-
-    .theme-toggle-icon-sun,
-    .theme-toggle-icon-moon {
+    [data-theme="dark"] .theme-toggle-thumb { transform: translateX(18px); background: var(--blue); }
+    .theme-toggle-icon-sun, .theme-toggle-icon-moon {
       position: absolute;
       transition: opacity 0.3s;
       font-size: 11px;
       line-height: 1;
     }
-
     .theme-toggle-icon-sun { opacity: 1; }
     .theme-toggle-icon-moon { opacity: 0; }
-
     [data-theme="dark"] .theme-toggle-icon-sun { opacity: 0; }
     [data-theme="dark"] .theme-toggle-icon-moon { opacity: 1; }
 
@@ -126,7 +93,7 @@
       transition: background 0.4s ease, color 0.4s ease;
     }
 
-    /* ── GRAIN TEXTURE OVERLAY ── */
+    /* ── GRAIN ── */
     body::before {
       content: '';
       position: fixed;
@@ -160,26 +127,23 @@
       text-decoration: none;
       letter-spacing: -0.03em;
     }
-
     .nav-logo span { color: var(--blue); }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
       text-decoration: none;
       color: var(--gray);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: color 0.2s;
       position: relative;
     }
-
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -188,7 +152,6 @@
       background: var(--blue);
       transition: width 0.25s;
     }
-
     .nav-links a:hover { color: var(--black); }
     .nav-links a:hover::after { width: 100%; }
 
@@ -225,8 +188,8 @@
 
     @keyframes blobFloat {
       0%,100% { transform: translate(0,0) scale(1); }
-      33% { transform: translate(-20px, -30px) scale(1.04); }
-      66% { transform: translate(20px, 10px) scale(0.97); }
+      33% { transform: translate(-20px,-30px) scale(1.04); }
+      66% { transform: translate(20px,10px) scale(0.97); }
     }
 
     .hero-content {
@@ -242,12 +205,7 @@
       margin-bottom: 2rem;
       animation: fadeUp 0.8s ease both;
     }
-
-    .hero-eyebrow-line {
-      width: 40px; height: 2px;
-      background: var(--blue);
-    }
-
+    .hero-eyebrow-line { width: 40px; height: 2px; background: var(--blue); }
     .hero-eyebrow span {
       font-size: 0.75rem;
       font-weight: 500;
@@ -266,12 +224,22 @@
       animation: fadeUp 0.8s 0.1s ease both;
     }
 
+    /* ── SPACE GROTESK pour le nom ── */
     .hero-title .outline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(4rem, 9.5vw, 8.5rem);
+      letter-spacing: -0.03em;
       -webkit-text-stroke: 2px var(--black);
       color: transparent;
     }
-
-    .hero-title .blue { color: var(--blue); }
+    .hero-title .blue {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(4rem, 9.5vw, 8.5rem);
+      letter-spacing: -0.03em;
+      color: var(--blue);
+    }
 
     .hero-subtitle {
       font-family: 'Syne', sans-serif;
@@ -292,7 +260,6 @@
       font-weight: 300;
       animation: fadeUp 0.8s 0.3s ease both;
     }
-
     .hero-desc strong { color: var(--black); font-weight: 500; }
 
     .hero-cta {
@@ -310,15 +277,10 @@
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 20px rgba(0,102,255,0.3);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,102,255,0.45);
-    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,102,255,0.45); }
 
     .btn-secondary {
       border: 1.5px solid var(--black);
@@ -330,17 +292,11 @@
       font-weight: 500;
       transition: transform 0.2s, background 0.2s, color 0.2s;
     }
-
-    .btn-secondary:hover {
-      background: var(--black);
-      color: var(--white);
-      transform: translateY(-3px);
-    }
+    .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-3px); }
 
     .hero-number {
       position: absolute;
-      right: 5rem;
-      bottom: 4rem;
+      right: 5rem; bottom: 4rem;
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: clamp(6rem, 15vw, 14rem);
@@ -354,8 +310,7 @@
 
     .scroll-hint {
       position: absolute;
-      bottom: 2.5rem;
-      left: 5rem;
+      bottom: 2.5rem; left: 5rem;
       display: flex;
       align-items: center;
       gap: 0.8rem;
@@ -364,7 +319,6 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
     .scroll-hint-line {
       width: 40px; height: 1px;
       background: var(--gray);
@@ -375,17 +329,14 @@
       0%,100% { width: 40px; opacity: 1; }
       50% { width: 20px; opacity: 0.4; }
     }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── SECTION COMMONS ── */
+    /* ── SECTIONS COMMUNES ── */
     section { padding: 8rem 5rem; }
-
     .section-header { margin-bottom: 4rem; }
-
     .section-label {
       display: flex;
       align-items: center;
@@ -397,13 +348,7 @@
       font-weight: 500;
       margin-bottom: 1.2rem;
     }
-
-    .section-label::before {
-      content: '';
-      width: 24px; height: 2px;
-      background: var(--blue);
-    }
-
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--blue); }
     .section-title {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -412,23 +357,118 @@
       line-height: 1;
     }
 
+    /* ── PARCOURS TIMELINE ── */
+    #parcours { background: var(--white); }
+
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 3.5rem 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px var(--blue-light);
+      transition: box-shadow 0.3s;
+    }
+    .timeline-item:hover::before { box-shadow: 0 0 0 7px var(--blue-light); }
+
+    .timeline-date {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-sub {
+      font-size: 0.85rem;
+      color: var(--blue);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      opacity: 0.8;
+    }
+    .timeline-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    /* ── BARRES DE PROGRESSION ── */
+    #progression { background: var(--off); }
+
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .progress-label {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+    .progress-pct {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+    .progress-bar-bg {
+      height: 6px;
+      background: var(--light);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--blue), #60a5fa);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     /* ── COMPÉTENCES ── */
     #competences {
-      background: var(--off);
+      background: var(--white);
       position: relative;
       overflow: hidden;
     }
-
     #competences::before {
       content: '';
       position: absolute;
       top: -50px; right: -50px;
       width: 300px; height: 300px;
-      background-image: repeating-linear-gradient(
-        45deg,
-        var(--light) 0, var(--light) 1px,
-        transparent 0, transparent 50%
-      );
+      background-image: repeating-linear-gradient(45deg, var(--light) 0, var(--light) 1px, transparent 0, transparent 50%);
       background-size: 12px 12px;
       opacity: 0.6;
       pointer-events: none;
@@ -439,9 +479,8 @@
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 1.5rem;
     }
-
     .skill-card {
-      background: var(--white);
+      background: var(--off);
       border: 1.5px solid var(--light);
       border-radius: 12px;
       padding: 2.2rem;
@@ -449,7 +488,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .skill-card::before {
       content: '';
       position: absolute;
@@ -458,21 +496,9 @@
       background: var(--blue);
       transition: height 0.3s;
     }
-
     .skill-card:hover::before { height: 100%; }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.09);
-      border-color: var(--blue-light);
-    }
-
-    .skill-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
+    .skill-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.09); border-color: var(--blue-light); }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
     .skill-card h3 {
       font-family: 'Syne', sans-serif;
       font-size: 1.05rem;
@@ -480,22 +506,15 @@
       margin-bottom: 0.6rem;
       letter-spacing: -0.02em;
     }
-
-    .skill-card p {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.65;
-    }
+    .skill-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; }
 
     /* ── PROJETS ── */
-    #projets { background: var(--white); }
-
+    #projets { background: var(--off); }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 2rem;
     }
-
     .project-card {
       border: 1.5px solid var(--light);
       border-radius: 14px;
@@ -503,11 +522,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
       background: var(--white);
     }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.1);
-    }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,0.1); }
 
     .project-thumb {
       height: 200px;
@@ -517,7 +532,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .project-thumb.t1 { background: linear-gradient(135deg, #e0ebff 0%, #c7d9ff 100%); }
     .project-thumb.t2 { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
     .project-thumb.t3 { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
@@ -529,9 +543,7 @@
       position: relative;
       z-index: 1;
     }
-
     .project-card:hover .project-thumb-icon { transform: scale(1.1) rotate(-4deg); }
-
     .project-thumb::after {
       content: '';
       position: absolute;
@@ -541,7 +553,6 @@
     }
 
     .project-body { padding: 1.8rem 1.8rem 1rem; }
-
     .project-tag {
       font-size: 0.68rem;
       letter-spacing: 0.12em;
@@ -550,7 +561,6 @@
       font-weight: 600;
       margin-bottom: 0.6rem;
     }
-
     .project-body h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -558,20 +568,9 @@
       letter-spacing: -0.03em;
       margin-bottom: 0.7rem;
     }
+    .project-body p { font-size: 0.875rem; color: var(--gray); line-height: 1.65; }
 
-    .project-body p {
-      font-size: 0.875rem;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
-    .project-footer {
-      padding: 1rem 1.8rem 1.8rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
+    .project-footer { padding: 1rem 1.8rem 1.8rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .tech-badge {
       font-size: 0.68rem;
       font-weight: 500;
@@ -590,7 +589,6 @@
       position: relative;
       overflow: hidden;
     }
-
     #contact::before {
       content: '';
       position: absolute;
@@ -598,7 +596,6 @@
       background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
       background-size: 28px 28px;
     }
-
     #contact::after {
       content: '';
       position: absolute;
@@ -607,13 +604,7 @@
       background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 65%);
       pointer-events: none;
     }
-
-    .contact-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-    }
-
+    .contact-inner { position: relative; z-index: 2; max-width: 700px; }
     #contact .section-label { color: #60a5fa; }
     #contact .section-label::before { background: #60a5fa; }
     #contact .section-title { color: var(--white); }
@@ -626,13 +617,7 @@
       margin: 1.5rem 0 3rem;
       max-width: 500px;
     }
-
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .contact-btn {
       display: flex;
       align-items: center;
@@ -644,33 +629,14 @@
       font-weight: 500;
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
-
-    .contact-btn.primary {
-      background: var(--blue);
-      color: var(--white);
-      box-shadow: 0 4px 20px rgba(0,102,255,0.35);
-    }
-
-    .contact-btn.primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,102,255,0.5);
-    }
-
-    .contact-btn.secondary {
-      border: 1.5px solid #374151;
-      color: var(--white);
-    }
-
-    .contact-btn.secondary:hover {
-      border-color: #6b7280;
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.05);
-    }
+    .contact-btn.primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 20px rgba(0,102,255,0.35); }
+    .contact-btn.primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,102,255,0.5); }
+    .contact-btn.secondary { border: 1.5px solid #374151; color: var(--white); }
+    .contact-btn.secondary:hover { border-color: #6b7280; transform: translateY(-3px); background: rgba(255,255,255,0.05); }
 
     .contact-deco {
       position: absolute;
-      right: 4rem;
-      top: 50%;
+      right: 4rem; top: 50%;
       transform: translateY(-50%);
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -680,7 +646,6 @@
       letter-spacing: -0.05em;
       pointer-events: none;
       user-select: none;
-      line-height: 1;
     }
 
     footer {
@@ -699,12 +664,9 @@
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── BURGER MENU ── */
+    /* ── BURGER ── */
     .burger {
       display: none;
       flex-direction: column;
@@ -715,7 +677,6 @@
       padding: 4px;
       z-index: 200;
     }
-
     .burger span {
       display: block;
       width: 24px; height: 2px;
@@ -723,7 +684,6 @@
       border-radius: 2px;
       transition: transform 0.3s, opacity 0.3s;
     }
-
     .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .burger.open span:nth-child(2) { opacity: 0; }
     .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -739,9 +699,7 @@
       justify-content: center;
       gap: 2rem;
     }
-
     .mobile-menu.open { display: flex; }
-
     .mobile-menu a {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -751,9 +709,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
     .mobile-menu a:hover { color: var(--blue); }
-
     .mobile-toggle-row {
       display: flex;
       align-items: center;
@@ -776,6 +732,7 @@
       .hero-number, .contact-deco, .scroll-hint { display: none; }
       .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
+      .progress-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -786,6 +743,8 @@
     <a href="#accueil" class="nav-logo">VM<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#progression">Niveaux</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -804,6 +763,8 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#accueil" class="mobile-link">Accueil</a>
+    <a href="#parcours" class="mobile-link">Parcours</a>
+    <a href="#progression" class="mobile-link">Niveaux</a>
     <a href="#competences" class="mobile-link">Compétences</a>
     <a href="#projets" class="mobile-link">Projets</a>
     <a href="#contact" class="mobile-link">Contact</a>
@@ -844,6 +805,98 @@
     <div class="scroll-hint">
       <div class="scroll-hint-line"></div>
       Scroll
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours">
+    <div class="section-header reveal">
+      <div class="section-label">Mon histoire</div>
+      <h2 class="section-title">Mon parcours</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2022 — 2023</div>
+        <div class="timeline-title">Bac Pro SN — Systèmes Numériques</div>
+        <div class="timeline-sub">Lycée</div>
+        <p class="timeline-desc">Formation aux bases des systèmes informatiques, réseaux et électronique. Premiers pas dans le monde de l'IT.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2023 — Aujourd'hui</div>
+        <div class="timeline-title">BTS SIO — Option SISR</div>
+        <div class="timeline-sub">En cours</div>
+        <p class="timeline-desc">Formation spécialisée en infrastructures systèmes et réseaux. Administration de serveurs, sécurité, virtualisation et gestion de parc informatique.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2024 — Aujourd'hui</div>
+        <div class="timeline-title">Technicien informatique en alternance</div>
+        <div class="timeline-sub">Viessmann · Faulquemont</div>
+        <p class="timeline-desc">Gestion de l'infrastructure IT en environnement industriel. Support utilisateurs, maintenance du parc, administration réseau et systèmes en conditions réelles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRES DE PROGRESSION -->
+  <section id="progression">
+    <div class="section-header reveal">
+      <div class="section-label">Niveau technique</div>
+      <h2 class="section-title">Mes niveaux</h2>
+    </div>
+    <div class="progress-grid">
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Windows Server / Active Directory</span>
+          <span class="progress-pct">80%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="80"></div>
+        </div>
+      </div>
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Réseaux (TCP/IP, VLAN, Routage)</span>
+          <span class="progress-pct">75%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="75"></div>
+        </div>
+      </div>
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Linux</span>
+          <span class="progress-pct">65%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="65"></div>
+        </div>
+      </div>
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Virtualisation (VMware / VirtualBox)</span>
+          <span class="progress-pct">70%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="70"></div>
+        </div>
+      </div>
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Sécurité / Firewall (pfSense)</span>
+          <span class="progress-pct">65%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="65"></div>
+        </div>
+      </div>
+      <div class="progress-item reveal">
+        <div class="progress-header">
+          <span class="progress-label">Support & Maintenance</span>
+          <span class="progress-pct">85%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" data-width="85"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -962,6 +1015,7 @@
   <footer>© 2025 Vincent Magnin — BTS SIO SISR</footer>
 
   <script>
+    // ── SCROLL REVEAL ──
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -972,6 +1026,7 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
+    // ── NAV SHRINK ──
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       nav.style.padding = window.scrollY > 60 ? '1rem 5rem' : '1.5rem 5rem';
@@ -1013,6 +1068,18 @@
         document.body.style.overflow = '';
       });
     });
+
+    // ── PROGRESS BARS ──
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target.querySelector('.progress-bar-fill');
+          if (fill) setTimeout(() => { fill.style.width = fill.dataset.width + '%'; }, 200);
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.progress-item').forEach(el => barObserver.observe(el));
   </script>
 </body>
 </html>
