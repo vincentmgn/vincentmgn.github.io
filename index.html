@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vincent Magnin — Portfolio SISR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --white: #ffffff;
@@ -269,19 +269,9 @@
     .hero-title .outline {
       -webkit-text-stroke: 2px var(--black);
       color: transparent;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: clamp(4rem, 9.5vw, 8.5rem);
-      letter-spacing: -0.03em;
     }
 
-    .hero-title .blue {
-      color: var(--blue);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: clamp(4rem, 9.5vw, 8.5rem);
-      letter-spacing: -0.03em;
-    }
+    .hero-title .blue { color: var(--blue); }
 
     .hero-subtitle {
       font-family: 'Syne', sans-serif;
@@ -714,130 +704,6 @@
       transform: translateY(0);
     }
 
-    /* ── PARCOURS TIMELINE ── */
-    #parcours {
-      background: var(--white);
-      position: relative;
-    }
-
-    .timeline {
-      position: relative;
-      margin-top: 3rem;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--blue), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 3rem 2.5rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -6px; top: 6px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 0 4px var(--blue-light);
-      transition: box-shadow 0.3s;
-    }
-
-    [data-theme="dark"] .timeline-item::before {
-      box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
-    }
-
-    .timeline-item:hover::before {
-      box-shadow: 0 0 0 6px var(--blue-light);
-    }
-
-    .timeline-date {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.4rem;
-    }
-
-    .timeline-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-sub {
-      font-size: 0.85rem;
-      color: var(--blue);
-      font-weight: 500;
-      margin-bottom: 0.6rem;
-    }
-
-    .timeline-desc {
-      font-size: 0.875rem;
-      color: var(--gray);
-      line-height: 1.65;
-      max-width: 500px;
-    }
-
-    /* ── BARRES DE PROGRESSION ── */
-    #progression {
-      background: var(--off);
-    }
-
-    .progress-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: 1.8rem;
-      margin-top: 3rem;
-    }
-
-    .progress-item { }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.6rem;
-    }
-
-    .progress-label {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-
-    .progress-pct {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--blue);
-    }
-
-    .progress-bar-bg {
-      height: 6px;
-      background: var(--light);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 100px;
-      background: linear-gradient(90deg, var(--blue), #60a5fa);
-      width: 0%;
-      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     /* ── BURGER MENU ── */
     .burger {
       display: none;
@@ -920,7 +786,6 @@
     <a href="#accueil" class="nav-logo">VM<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#parcours">Parcours</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -939,7 +804,6 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#accueil" class="mobile-link">Accueil</a>
-    <a href="#parcours" class="mobile-link">Parcours</a>
     <a href="#competences" class="mobile-link">Compétences</a>
     <a href="#projets" class="mobile-link">Projets</a>
     <a href="#contact" class="mobile-link">Contact</a>
@@ -980,98 +844,6 @@
     <div class="scroll-hint">
       <div class="scroll-hint-line"></div>
       Scroll
-    </div>
-  </section>
-
-  <!-- PARCOURS -->
-  <section id="parcours">
-    <div class="section-header reveal">
-      <div class="section-label">Mon histoire</div>
-      <h2 class="section-title">Mon parcours</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-date">2022 — 2023</div>
-        <div class="timeline-title">Bac Pro SN — Systèmes Numériques</div>
-        <div class="timeline-sub">Lycée</div>
-        <p class="timeline-desc">Formation aux bases des systèmes informatiques, réseaux et électronique. Premiers pas dans le monde de l'IT.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-date">2023 — Aujourd'hui</div>
-        <div class="timeline-title">BTS SIO — Option SISR</div>
-        <div class="timeline-sub">En cours</div>
-        <p class="timeline-desc">Formation spécialisée en infrastructures systèmes et réseaux. Administration de serveurs, sécurité, virtualisation et gestion de parc informatique.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-date">2024 — Aujourd'hui</div>
-        <div class="timeline-title">Technicien informatique en alternance</div>
-        <div class="timeline-sub">Viessmann · Faulquemont</div>
-        <p class="timeline-desc">Gestion de l'infrastructure IT en environnement industriel. Support utilisateurs, maintenance du parc, administration réseau et systèmes en conditions réelles.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BARRES DE PROGRESSION -->
-  <section id="progression">
-    <div class="section-header reveal">
-      <div class="section-label">Niveau technique</div>
-      <h2 class="section-title">Mes niveaux</h2>
-    </div>
-    <div class="progress-grid">
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Windows Server / Active Directory</span>
-          <span class="progress-pct">80%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="80"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Réseaux (TCP/IP, VLAN, Routage)</span>
-          <span class="progress-pct">75%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="75"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Linux</span>
-          <span class="progress-pct">65%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="65"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Virtualisation (VMware / VirtualBox)</span>
-          <span class="progress-pct">70%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="70"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Sécurité / Firewall (pfSense)</span>
-          <span class="progress-pct">65%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="65"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Support & Maintenance</span>
-          <span class="progress-pct">85%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="85"></div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1179,7 +951,7 @@
         Disponible pour échanger sur des opportunités de stage, d'alternance ou simplement pour discuter d'informatique et de réseaux.
       </p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#acdac5c2cfc9c2d882c1cbc2ecc3d9d8c0c3c3c782cade" class="contact-btn primary">✉️ Envoyer un email</a>
+        <a href="mailto:vincent.mgn@outlook.fr" class="contact-btn primary">✉️ Envoyer un email</a>
         <a href="https://www.linkedin.com/in/vincent-magnin-76a025311" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
         <a href="cv.pdf" download class="contact-btn secondary">📄 Mon CV</a>
       </div>
@@ -1189,7 +961,7 @@
 
   <footer>© 2025 Vincent Magnin — BTS SIO SISR</footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1199,22 +971,6 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-
-    // ── PROGRESS BARS ──
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fill = entry.target.querySelector('.progress-bar-fill');
-          if (fill) {
-            setTimeout(() => {
-              fill.style.width = fill.dataset.width + '%';
-            }, 200);
-          }
-          barObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.progress-item').forEach(el => barObserver.observe(el));
 
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
@@ -1252,4 +1008,11 @@
 
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
-        burger.classL
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>
