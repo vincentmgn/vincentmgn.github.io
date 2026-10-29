@@ -35,6 +35,8 @@
     }
     [data-theme="dark"] .skill-card { background: #1a1a1a; }
     [data-theme="dark"] .project-card { background: #1a1a1a; }
+    [data-theme="dark"] .cert-card { background: #1a1a1a; }
+    [data-theme="dark"] .cert-logo { background: linear-gradient(135deg, #1e2a3a 0%, #162040 100%); }
     [data-theme="dark"] .project-thumb.t1 { background: linear-gradient(135deg, #1e2a3a 0%, #162040 100%); }
     [data-theme="dark"] .project-thumb.t2 { background: linear-gradient(135deg, #1a2e1a 0%, #102510 100%); }
     [data-theme="dark"] .project-thumb.t3 { background: linear-gradient(135deg, #2e1a1a 0%, #251010 100%); }
@@ -45,6 +47,7 @@
     [data-theme="dark"] .progress-bar-bg { background: #2a2a2a; }
     [data-theme="dark"] #parcours { background: var(--white); }
     [data-theme="dark"] #progression { background: var(--off); }
+    [data-theme="dark"] #certifications { background: var(--white); }
 
     /* ── THEME TOGGLE ── */
     .theme-toggle {
@@ -582,6 +585,85 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--white); }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .cert-card {
+      border: 1.5px solid var(--light);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: var(--off);
+    }
+    .cert-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,0.1); }
+
+    .cert-logo {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e0ebff 0%, #c7d9ff 100%);
+    }
+    .cert-logo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .cert-logo-text {
+      position: relative;
+      z-index: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 4.5rem;
+      letter-spacing: -0.04em;
+      color: var(--blue);
+      transition: transform 0.3s;
+    }
+    .cert-card:hover .cert-logo-text { transform: scale(1.08) rotate(-3deg); }
+
+    .cert-body { padding: 1.8rem 1.8rem 1rem; }
+    .cert-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .cert-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.7rem;
+    }
+    .cert-body p { font-size: 0.875rem; color: var(--gray); line-height: 1.65; }
+    .cert-footer { padding: 1rem 1.8rem 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .cert-action { padding: 0.5rem 1.8rem 1.8rem; }
+    .cert-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,102,255,0.3);
+    }
+    .cert-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,102,255,0.45); }
+
     /* ── CONTACT ── */
     #contact {
       background: var(--black);
@@ -722,6 +804,10 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .nav-links { gap: 1.3rem; }
+      nav { padding-left: 2.5rem; padding-right: 2.5rem; }
+    }
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
@@ -732,6 +818,7 @@
       .hero-number, .contact-deco, .scroll-hint { display: none; }
       .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
       .progress-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -747,6 +834,7 @@
       <li><a href="#progression">Niveaux</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#projets">Projets</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
@@ -767,6 +855,7 @@
     <a href="#progression" class="mobile-link">Niveaux</a>
     <a href="#competences" class="mobile-link">Compétences</a>
     <a href="#projets" class="mobile-link">Projets</a>
+    <a href="#certifications" class="mobile-link">Certifications</a>
     <a href="#contact" class="mobile-link">Contact</a>
     <div class="mobile-toggle-row">
       <span>Thème</span>
@@ -992,6 +1081,42 @@
           <span class="tech-badge">VPN</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-header reveal">
+      <div class="section-label">Mes validations</div>
+      <h2 class="section-title">Certifications</h2>
+    </div>
+    <div class="certs-grid">
+
+      <!-- PIX -->
+      <div class="cert-card reveal">
+        <div class="cert-logo">
+          <span class="cert-logo-text">PIX</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-tag">Compétences numériques</div>
+          <h3>Certification PIX</h3>
+          <p>Certification publique qui atteste du niveau de compétences numériques : maîtrise des outils, protection des données, communication et résolution de problèmes dans un environnement numérique.</p>
+        </div>
+        <div class="cert-footer">
+          <span class="tech-badge">Informations & données</span>
+          <span class="tech-badge">Communication</span>
+          <span class="tech-badge">Création de contenu</span>
+          <span class="tech-badge">Protection & sécurité</span>
+          <span class="tech-badge">Environnement numérique</span>
+        </div>
+        <div class="cert-action">
+          <!-- Mets ton PDF officiel à côté de index.html et nomme-le certification-pix.pdf -->
+          <a href="certification-pix.pdf" target="_blank" rel="noopener" class="cert-btn">📄 Voir ma certification PIX</a>
+        </div>
+      </div>
+
+      <!-- Prochaines certifications : copie le bloc ci-dessus et modifie-le -->
+
     </div>
   </section>
 
