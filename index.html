@@ -420,6 +420,29 @@
       max-width: 520px;
     }
 
+    .timeline-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1.5px solid var(--blue);
+      border-radius: 6px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .timeline-btn:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
+    .timeline-btn.disabled {
+      border-color: var(--light);
+      color: var(--gray);
+      cursor: default;
+      opacity: 0.8;
+    }
+    .timeline-btn.disabled:hover { background: none; color: var(--gray); transform: none; }
+
     /* ── BARRES DE PROGRESSION ── */
     #progression { background: var(--off); }
 
@@ -905,19 +928,25 @@
     </div>
     <div class="timeline">
       <div class="timeline-item reveal">
-        <div class="timeline-date">2022 — 2023</div>
-        <div class="timeline-title">Bac Pro SN — Systèmes Numériques</div>
-        <div class="timeline-sub">Lycée</div>
-        <p class="timeline-desc">Formation aux bases des systèmes informatiques, réseaux et électronique. Premiers pas dans le monde de l'IT.</p>
+        <div class="timeline-date">2017 — 2020</div>
+        <div class="timeline-title">Bac Pro MELEC — Métiers de l'électricité et de ses environnements connectés</div>
+        <div class="timeline-sub">Lycée · Diplôme obtenu en 2020</div>
+        <p class="timeline-desc">Formation aux installations électriques et aux équipements connectés. Une première approche technique qui m'a mené vers l'informatique et les réseaux.</p>
+        <!-- Mets ton attestation à côté de index.html et nomme-la attestation-bac.pdf -->
+        <a href="attestation-bac.pdf" target="_blank" rel="noopener" class="timeline-btn">📄 Voir mon attestation</a>
       </div>
       <div class="timeline-item reveal">
-        <div class="timeline-date">2023 — Aujourd'hui</div>
+        <div class="timeline-date">2025 — Aujourd'hui</div>
         <div class="timeline-title">BTS SIO — Option SISR</div>
         <div class="timeline-sub">En cours</div>
         <p class="timeline-desc">Formation spécialisée en infrastructures systèmes et réseaux. Administration de serveurs, sécurité, virtualisation et gestion de parc informatique.</p>
+        <!-- QUAND TU AURAS TON BTS : remplace la ligne ci-dessous par
+             <a href="diplome-bts-sio.pdf" target="_blank" rel="noopener" class="timeline-btn">📄 Voir mon diplôme</a>
+             et mets le PDF à côté de index.html -->
+        <span class="timeline-btn disabled">📄 Diplôme disponible après l'obtention</span>
       </div>
       <div class="timeline-item reveal">
-        <div class="timeline-date">2024 — Aujourd'hui</div>
+        <div class="timeline-date">2025 — Aujourd'hui</div>
         <div class="timeline-title">Technicien informatique en alternance</div>
         <div class="timeline-sub">Viessmann · Faulquemont</div>
         <p class="timeline-desc">Gestion de l'infrastructure IT en environnement industriel. Support utilisateurs, maintenance du parc, administration réseau et systèmes en conditions réelles.</p>
