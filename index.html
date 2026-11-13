@@ -44,9 +44,7 @@
     [data-theme="dark"] footer { background: #080808; color: #444; }
     [data-theme="dark"] .hero-title .outline { -webkit-text-stroke: 2px var(--black); }
     [data-theme="dark"] .timeline-item::before { box-shadow: 0 0 0 4px rgba(59,130,246,0.2); }
-    [data-theme="dark"] .progress-bar-bg { background: #2a2a2a; }
     [data-theme="dark"] #parcours { background: var(--white); }
-    [data-theme="dark"] #progression { background: var(--off); }
     [data-theme="dark"] #certifications { background: var(--white); }
 
     /* ── THEME TOGGLE ── */
@@ -443,49 +441,9 @@
     }
     .timeline-btn.disabled:hover { background: none; color: var(--gray); transform: none; }
 
-    /* ── BARRES DE PROGRESSION ── */
-    #progression { background: var(--off); }
-
-    .progress-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.6rem;
-    }
-    .progress-label {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-    .progress-pct {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--blue);
-    }
-    .progress-bar-bg {
-      height: 6px;
-      background: var(--light);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 100px;
-      background: linear-gradient(90deg, var(--blue), #60a5fa);
-      width: 0%;
-      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     /* ── COMPÉTENCES ── */
     #competences {
-      background: var(--white);
+      background: var(--off);
       position: relative;
       overflow: hidden;
     }
@@ -506,7 +464,7 @@
       gap: 1.5rem;
     }
     .skill-card {
-      background: var(--off);
+      background: var(--white);
       border: 1.5px solid var(--light);
       border-radius: 12px;
       padding: 2.2rem;
@@ -687,6 +645,120 @@
     }
     .cert-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,102,255,0.45); }
 
+
+    /* ── VEILLE TECHNOLOGIQUE ── */
+    #veille { background: var(--white); }
+    #veille .skill-card { background: var(--off); }
+    [data-theme="dark"] #veille .skill-card { background: #1a1a1a; }
+    .veille-intro {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 640px;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+    .veille-action { margin-top: 2.5rem; }
+    .veille-action .timeline-btn { margin-top: 0; }
+
+    /* ── MENTIONS LÉGALES ── */
+    footer a { color: #6b7280; text-decoration: underline; transition: color 0.2s; }
+    footer a:hover { color: #9ca3af; }
+    .legal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .legal-overlay.open { display: flex; }
+    .legal-box {
+      position: relative;
+      background: var(--white);
+      color: var(--black);
+      border: 1.5px solid var(--light);
+      border-radius: 14px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+    }
+    .legal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--light);
+      border-radius: 50%;
+      background: none;
+      color: var(--black);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .legal-close:hover { border-color: var(--blue); color: var(--blue); }
+    .legal-box h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+    .legal-update { font-size: 0.75rem; color: var(--gray); margin-bottom: 1.8rem; }
+    .legal-box h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--blue);
+      margin: 1.5rem 0 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .legal-box p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+    .legal-box p strong { color: var(--black); font-weight: 500; }
+    .legal-box a { color: var(--blue); }
+
+    /* ── BANDEAU COOKIES ── */
+    .cookie-banner {
+      display: none;
+      position: fixed;
+      left: 1.5rem; right: 1.5rem; bottom: 1.5rem;
+      max-width: 560px;
+      z-index: 250;
+      background: var(--white);
+      color: var(--black);
+      border: 1.5px solid var(--light);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .cookie-banner.show { display: block; animation: fadeUp 0.5s ease both; }
+    .cookie-banner h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .cookie-banner p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+    .cookie-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .cookie-btn {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+    .cookie-btn.primary { background: var(--blue); color: #fff; border: 1.5px solid var(--blue); }
+    .cookie-btn.secondary { background: none; color: var(--black); border: 1.5px solid var(--light); }
+    .cookie-btn:hover { transform: translateY(-2px); }
+    .cookie-btn.secondary:hover { border-color: var(--blue); color: var(--blue); }
+
     /* ── CONTACT ── */
     #contact {
       background: var(--black);
@@ -842,7 +914,6 @@
       .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: 1fr; }
-      .progress-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -854,8 +925,8 @@
     <ul class="nav-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#progression">Niveaux</a></li>
       <li><a href="#competences">Compétences</a></li>
+      <li><a href="#veille">Veille</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -875,8 +946,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#accueil" class="mobile-link">Accueil</a>
     <a href="#parcours" class="mobile-link">Parcours</a>
-    <a href="#progression" class="mobile-link">Niveaux</a>
     <a href="#competences" class="mobile-link">Compétences</a>
+    <a href="#veille" class="mobile-link">Veille technologique</a>
     <a href="#projets" class="mobile-link">Projets</a>
     <a href="#certifications" class="mobile-link">Certifications</a>
     <a href="#contact" class="mobile-link">Contact</a>
@@ -953,70 +1024,6 @@
     </div>
   </section>
 
-  <!-- BARRES DE PROGRESSION -->
-  <section id="progression">
-    <div class="section-header reveal">
-      <div class="section-label">Niveau technique</div>
-      <h2 class="section-title">Mes niveaux</h2>
-    </div>
-    <div class="progress-grid">
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Windows Server / Active Directory</span>
-          <span class="progress-pct">80%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="80"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Réseaux (TCP/IP, VLAN, Routage)</span>
-          <span class="progress-pct">75%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="75"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Linux</span>
-          <span class="progress-pct">65%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="65"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Virtualisation (VMware / VirtualBox)</span>
-          <span class="progress-pct">70%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="70"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Sécurité / Firewall (pfSense)</span>
-          <span class="progress-pct">65%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="65"></div>
-        </div>
-      </div>
-      <div class="progress-item reveal">
-        <div class="progress-header">
-          <span class="progress-label">Support & Maintenance</span>
-          <span class="progress-pct">85%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" data-width="85"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- COMPÉTENCES -->
   <section id="competences">
     <div class="section-header reveal">
@@ -1054,6 +1061,40 @@
         <h3>Documentation</h3>
         <p>Rédaction de procédures, schémas et documentations techniques pour garder une trace claire des configurations et des interventions.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- VEILLE TECHNOLOGIQUE -->
+  <section id="veille">
+    <div class="section-header reveal">
+      <div class="section-label">Rester à jour</div>
+      <h2 class="section-title">Veille technologique</h2>
+    </div>
+    <p class="veille-intro reveal">
+      Dans le cadre de ma formation BTS SIO, je réalise une veille technologique pour suivre l'actualité des réseaux, des systèmes et de la sécurité informatique, et garder mes connaissances à jour.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">🔎</span>
+        <h3>Collecter</h3>
+        <p>Suivi régulier de sources fiables : sites spécialisés, publications officielles et actualités du secteur.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🗂️</span>
+        <h3>Trier & analyser</h3>
+        <p>Sélection des informations pertinentes, vérification des sources et analyse de leur intérêt pour mon domaine.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📰</span>
+        <h3>Synthétiser</h3>
+        <p>Rédaction de synthèses claires pour garder une trace de ce que j'apprends et pouvoir le partager.</p>
+      </div>
+    </div>
+    <div class="veille-action reveal">
+      <!-- QUAND TA SYNTHÈSE SERA PRÊTE : remplace la ligne ci-dessous par
+           <a href="veille-technologique.pdf" target="_blank" rel="noopener" class="timeline-btn">📄 Voir ma synthèse de veille</a>
+           et mets le PDF à côté de index.html -->
+      <span class="timeline-btn disabled">📄 Synthèse de veille bientôt disponible</span>
     </div>
   </section>
 
@@ -1165,7 +1206,49 @@
     <div class="contact-deco">CONTACT</div>
   </section>
 
-  <footer>© 2025 Vincent Magnin — BTS SIO SISR</footer>
+  <footer>© 2026 Vincent Magnin — BTS SIO SISR · <a href="#mentions-legales" id="openLegal">Mentions légales</a></footer>
+
+  <!-- BANDEAU COOKIES -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Information sur les cookies">
+    <h4>🍪 Cookies</h4>
+    <p>Ce site n'utilise aucun cookie de suivi ni de publicité. Seul votre choix de thème (clair ou sombre) est mémorisé sur votre appareil.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn primary" id="cookieOk">J'ai compris</button>
+      <button class="cookie-btn secondary" id="cookieMore">En savoir plus</button>
+    </div>
+  </div>
+
+  <!-- MENTIONS LÉGALES -->
+  <div class="legal-overlay" id="legalModal" aria-hidden="true">
+    <div class="legal-box" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+      <button class="legal-close" id="closeLegal" aria-label="Fermer">✕</button>
+      <h2 id="legalTitle">Mentions légales</h2>
+      <p class="legal-update">Dernière mise à jour : novembre 2026</p>
+
+      <h3>Éditeur du site</h3>
+      <p><strong>Vincent Magnin</strong>, étudiant en BTS SIO (Services Informatiques aux Organisations) option SISR, depuis 2025.<br/>
+      Site personnel à vocation pédagogique et de présentation de mon parcours, sans but commercial.<br/>
+      Contact : <a href="mailto:vincent.mgn@outlook.fr">vincent.mgn@outlook.fr</a></p>
+
+      <h3>Directeur de la publication</h3>
+      <p>Vincent Magnin.</p>
+
+      <h3>Hébergement</h3>
+      <p>Ce site est hébergé par GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+
+      <h3>Propriété intellectuelle</h3>
+      <p>Les textes, le design et les projets présentés sur ce site sont la création de Vincent Magnin, sauf mention contraire. Toute reproduction sans autorisation est interdite. Les noms et marques cités (Viessmann, PIX, Cisco, pfSense, etc.) appartiennent à leurs propriétaires respectifs.</p>
+
+      <h3>Données personnelles</h3>
+      <p>Ce site ne collecte aucune donnée personnelle et n'utilise pas de cookies de suivi. Seul votre choix de thème (clair ou sombre) est enregistré localement dans votre navigateur. Si vous m'écrivez par e-mail, votre message est utilisé uniquement pour vous répondre. Les polices sont chargées depuis Google Fonts, ce qui peut transmettre votre adresse IP à Google.</p>
+
+      <h3 id="cookies">Cookies et stockage local</h3>
+      <p>Ce site n'utilise <strong>aucun cookie publicitaire, statistique ou de suivi</strong>. Il enregistre uniquement, dans le stockage local de votre navigateur, votre choix de thème (clair ou sombre) et le fait que vous avez pris connaissance du bandeau d'information. Ces informations restent sur votre appareil et ne sont jamais transmises. Vous pouvez les supprimer à tout moment depuis les paramètres de votre navigateur.</p>
+
+      <h3>Liens externes</h3>
+      <p>Ce site peut contenir des liens vers d'autres sites (LinkedIn, etc.). Je ne suis pas responsable de leur contenu.</p>
+    </div>
+  </div>
 
   <script>
     // ── SCROLL REVEAL ──
@@ -1222,17 +1305,40 @@
       });
     });
 
-    // ── PROGRESS BARS ──
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fill = entry.target.querySelector('.progress-bar-fill');
-          if (fill) setTimeout(() => { fill.style.width = fill.dataset.width + '%'; }, 200);
-          barObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.progress-item').forEach(el => barObserver.observe(el));
+
+    // ── MENTIONS LÉGALES ──
+    const legalModal = document.getElementById('legalModal');
+    function openLegal(target) {
+      legalModal.classList.add('open');
+      legalModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (target) {
+        const el = document.getElementById(target);
+        if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      }
+    }
+    function closeLegal() {
+      legalModal.classList.remove('open');
+      legalModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('openLegal').addEventListener('click', (e) => { e.preventDefault(); openLegal(); });
+
+    // ── BANDEAU COOKIES ──
+    const cookieBanner = document.getElementById('cookieBanner');
+    let cookieSeen = false;
+    try { cookieSeen = localStorage.getItem('cookieNotice') === 'ok'; } catch (e) {}
+    if (!cookieSeen) setTimeout(() => cookieBanner.classList.add('show'), 800);
+
+    function hideCookieBanner() {
+      cookieBanner.classList.remove('show');
+      try { localStorage.setItem('cookieNotice', 'ok'); } catch (e) {}
+    }
+    document.getElementById('cookieOk').addEventListener('click', hideCookieBanner);
+    document.getElementById('cookieMore').addEventListener('click', () => { hideCookieBanner(); openLegal('cookies'); });
+    document.getElementById('closeLegal').addEventListener('click', closeLegal);
+    legalModal.addEventListener('click', (e) => { if (e.target === legalModal) closeLegal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLegal(); });
   </script>
 </body>
 </html>
